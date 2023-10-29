@@ -1,19 +1,18 @@
-window.onload=function() {
-    var email = document.getElementsByTagName('input');
-    const error_message = document.getElementsByClassName('message');
-    var submission = document.getElementsByClassName('btn');
+window.onload = function() {
 
-    form.addEventListener('submit', function(event) {
+    var submission = document.querySelector("button");
+    var message = document.getElementsByClassName("message")[0];
+    var email = document.getElementById("email").value;
 
+    submission.addEventListener("click", function(event){
+        
         event.preventDefault();
-        if (email.value === '') {
-            error_message.style.display = "Please enter a valid email address";
-        }
-        else {
-            error_message.style.display = "Thank you! Your email address " + email + " has been added to our mailing list!";
+        
+        if (email !="" && email.indexOf("@") !== -1) {
+            message.innerHTML = "Thank you your email address " + email +  " has been added to our mailing list";
+        }else {
+            message.innerHTML = "Please enter a valid email address";
         }
     }
-    )
+    );
 }
-
-
